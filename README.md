@@ -1,5 +1,5 @@
 ## MyLinux
-#my configuration of archlinux
+# my configuration of archlinux
 1. neteast-cloud-music
 2. google-chrome
 3. goldendict-git
