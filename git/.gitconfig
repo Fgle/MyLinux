@@ -1,0 +1,9 @@
+[user]
+	name = fgle
+	email = fgle.sky@gmail.com
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[alias]
+	last = log -1 HEAD
