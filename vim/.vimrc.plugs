@@ -1,0 +1,94 @@
+" Modeline and Notes {
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"
+" }
+
+" Environment {
+
+    " Basics {
+        set nocompatible        " Must be first line
+        set background=dark     " Assume a dark background
+    " }
+
+    " Windows Compatible {
+        " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
+        " across (heterogeneous) systems easier.
+        if has('win32') || has('win64')
+          set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+
+          " Be nice and check for multi_byte even if the config requires
+          " multi_byte support most of the time
+          if has("multi_byte")
+            " Windows cmd.exe still uses cp850. If Windows ever moved to
+            " Powershell as the primary terminal, this would be utf-8
+            set termencoding=cp850
+            " Let Vim use utf-8 internally, because many scripts require this
+            set encoding=utf-8
+            setglobal fileencoding=utf-8
+            " Windows has traditionally used cp1252, so it's probably wise to
+            " fallback into cp1252 instead of eg. iso-8859-15.
+            " Newer Windows files might contain utf-8 or utf-16 LE so we might
+            " want to try them first.
+            set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
+          endif
+        endif
+    " }
+
+" }
+
+" Setup Plug Support {
+    " The next three lines ensure that the ~/.vim/plugged/ system works
+    call plug#begin('~/.vim/plugged')
+" }
+
+"    Plugs {
+
+   " General {
+            Plug 'scrooloose/nerdtree'                      "nerdtree
+            Plug 'jistr/vim-nerdtree-tabs'
+            Plug 'Xuyuanp/nerdtree-git-plugin'
+            Plug 'tomasr/molokai'                           "主题
+            Plug 'altercation/vim-colors-solarized'         "主题
+            Plug 'tpope/vim-surround'                       "强大的括号补全等
+            Plug 'terryma/vim-multiple-cursors'             "多光标
+            Plug 'vim-airline/vim-airline'
+            Plug 'vim-airline/vim-airline-themes'
+            Plug 'powerline/fonts'
+            Plug 'mbbill/undotree'
+            Plug 'nathanaelkane/vim-indent-guides'          "缩进显示
+    " }
+
+    " Writing {
+            "Plug 'kana/vim-textobj-user'
+            "Plug 'kana/vim-textobj-indent'
+            "Plug 'reedes/vim-litecorrect'
+            "Plug 'reedes/vim-textobj-sentence'
+            "Plug 'reedes/vim-textobj-quote'
+            "Plug 'reedes/vim-wordy'
+            " Plug 'isnowfy/python-vim-instant-markdown'
+            Plug 'godlygeek/tabular'
+            Plug 'plasticboy/vim-markdown'
+            Plug 'suan/vim-instant-markdown'
+    " }
+
+    " Programming {
+            Plug 'tpope/vim-fugitive'                       "git高亮
+            Plug 'w0rp/ale'                                 "语法检测
+            Plug 'tpope/vim-commentary'                     "注释
+            Plug 'klen/python-mode'                         "python
+            "Plug 'luochen1990/rainbow'                     "彩虹括号
+            "Plug 'octol/vim-cpp-enhanced-highlight'        “c++语法高亮
+    " }
+
+    "Snippets & AutoComplete {
+            "Plug 'Valloric/YouCompleteMe',{'do': './install.py --clang-completer'}
+            Plug 'SirVer/ultisnips'
+            Plug 'honza/vim-snippets'
+    " }
+
+" }
+
+" Initlalize plugin system {
+    call plug#end()
+" }
+
